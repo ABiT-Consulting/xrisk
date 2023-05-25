@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ComModelService.ComModelService">
+    <Position X="5.5" Y="1.75" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAQAAABhAAAEAAAAAAAAAQAAAQAAAAAAA=</HashCode>
+      <FileName>ComModelService.svc.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ComModelService.JSON_OBJ">
+    <Position X="0.75" Y="1.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAAAAAAAAAAAAAgABAAAIAAAIAAIAAAAAA=</HashCode>
+      <FileName>IComModelService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ComModelService.Response" Collapsed="true">
+    <Position X="2.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAgAEAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IComModelService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="ComModelService.IComModelService">
+    <Position X="2.5" Y="2.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQAAAAhAAAAAAAAAAAAAQAAAQAAAAAAA=</HashCode>
+      <FileName>IComModelService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

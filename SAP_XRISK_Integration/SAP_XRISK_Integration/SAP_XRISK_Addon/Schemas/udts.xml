@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<BOM>
+  <BO>
+    <AdmInfo>
+      <Object>153</Object>
+    </AdmInfo>
+    <OUTB>
+      <row Name ="AB_SerUrl">
+        <TableName>AB_SerUrl</TableName>
+        <Descr>Service URL</Descr>
+        <ObjectType>0</ObjectType>
+        <Archivable>N</Archivable>
+        <ArchivDate/>
+      </row>
+    </OUTB>
+  </BO>
+</BOM>

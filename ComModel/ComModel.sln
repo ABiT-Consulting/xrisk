@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComModel", "ComModel\ComModel.csproj", "{CDCD7601-A8BD-4192-A6FB-A3819AFDCCCF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestComModel", "TestComModel\TestComModel.csproj", "{4CEB05D5-1751-4C31-AC8A-FBE26BF4380B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{CDCD7601-A8BD-4192-A6FB-A3819AFDCCCF} = {CDCD7601-A8BD-4192-A6FB-A3819AFDCCCF}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 3
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://89.249.220.100:8080/tfs/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = ComModel\\ComModel.csproj
+		SccProjectName1 = ComModel
+		SccLocalPath1 = ComModel
+		SccProjectUniqueName2 = TestComModel\\TestComModel.csproj
+		SccProjectName2 = TestComModel
+		SccLocalPath2 = TestComModel
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CDCD7601-A8BD-4192-A6FB-A3819AFDCCCF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CDCD7601-A8BD-4192-A6FB-A3819AFDCCCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CDCD7601-A8BD-4192-A6FB-A3819AFDCCCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CDCD7601-A8BD-4192-A6FB-A3819AFDCCCF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4CEB05D5-1751-4C31-AC8A-FBE26BF4380B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4CEB05D5-1751-4C31-AC8A-FBE26BF4380B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4CEB05D5-1751-4C31-AC8A-FBE26BF4380B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4CEB05D5-1751-4C31-AC8A-FBE26BF4380B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

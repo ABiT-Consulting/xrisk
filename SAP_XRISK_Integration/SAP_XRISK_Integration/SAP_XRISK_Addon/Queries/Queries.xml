@@ -1,0 +1,309 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Queries>
+  <Query name="Createdatabase">
+    <SQL>
+      <![CDATA[If not exists (SELECT name FROM master.sys.databases WHERE name = N'{1}_CT')
+      CREATE DATABASE {1}_CT 
+      ON PRIMARY(NAME = {1}_CT, FILENAME ='{0}{1}_CT.mdf',
+      SIZE = 200MB, MAXSIZE = 1000MB, FILEGROWTH = 10%) 
+      LOG ON (NAME = {1}_CT_Log, FILENAME = '{0}{1}_CT.ldf', 
+      SIZE = 1MB, MAXSIZE = 5MB, FILEGROWTH = 10%)]]>
+    </SQL>
+    <HANA>
+      <![CDATA[If not exists (SELECT name FROM master.sys.databases WHERE name = N'{1}_CT')
+      CREATE DATABASE {1}_CT 
+      ON PRIMARY(NAME = {1}_CT, FILENAME ='{0}{1}_CT.mdf',
+      SIZE = 200MB, MAXSIZE = 1000MB, FILEGROWTH = 10%) 
+      LOG ON (NAME = {1}_CT_Log, FILENAME = '{0}{1}_CT.ldf', 
+      SIZE = 1MB, MAXSIZE = 5MB, FILEGROWTH = 10%)]]>
+    </HANA>
+  </Query>
+  <Query name="Create@AB_CTRK">
+    <SQL>
+      <![CDATA[If not exists (select name from sysobjects where name = '@AB_CTRK') 
+      CREATE TABLE [dbo].[@AB_CTRK]([DocEntry][bigint] IDENTITY(1, 1) NOT NULL,
+      [U_version][bigint] NOT NULL,
+      [U_ObjType][nvarchar](30) NOT NULL,[U_Key][nvarchar](30) NOT NULL,[U_DateTime][datetime] NOT NULL,
+      [U_TrType][nvarchar](1) NOT NULL,[U_KeyName][nvarchar](100) NOT NULL,CONSTRAINT[PK_@AB_CTRK] 
+      PRIMARY KEY CLUSTERED([DocEntry] ASC)WITH
+      (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON[PRIMARY]) ON[PRIMARY]]]>
+    </SQL>
+    <HANA>
+      <![CDATA[If not exists (select name from sysobjects where name = '@AB_CTRK') 
+      CREATE TABLE [dbo].[@AB_CTRK]([DocEntry][bigint] IDENTITY(1, 1) NOT NULL,
+      [U_version][bigint] NOT NULL,
+      [U_ObjType][nvarchar](30) NOT NULL,[U_Key][nvarchar](30) NOT NULL,[U_DateTime][datetime] NOT NULL,
+      [U_TrType][nvarchar](1) NOT NULL,[U_KeyName][nvarchar](100) NOT NULL,CONSTRAINT[PK_@AB_CTRK] 
+      PRIMARY KEY CLUSTERED([DocEntry] ASC)WITH
+      (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON[PRIMARY]) ON[PRIMARY]]>
+    </HANA>
+  </Query>
+  <Query name="Create@AB_TRKOBJ">
+    <SQL>
+      <![CDATA[If not exists (select name from sysobjects where name = '@AB_TRKOBJ')
+      CREATE TABLE [dbo].[@AB_TRKOBJ]([DocEntry] [bigint] IDENTITY(1,1) NOT NULL,
+      [U_ObjType] [nvarchar](30) NULL,[U_KeyName] [nvarchar](30) NULL,[Active] [nvarchar](1) NULL,
+      [U_HTBL] [nvarchar](30) NULL,[U_Where] [nvarchar](max) NULL,CONSTRAINT [PK_SAP.@AB_TRKOBJ] 
+      PRIMARY KEY CLUSTERED ([DocEntry] ASC)WITH 
+      (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]]]>
+    </SQL>
+    <HANA>
+      <![CDATA[If not exists (select name from sysobjects where name = '@AB_TRKOBJ')
+      CREATE TABLE [dbo].[@AB_TRKOBJ]([DocEntry] [bigint] IDENTITY(1,1) NOT NULL,
+      [U_ObjType] [nvarchar](30) NULL,[U_KeyName] [nvarchar](30) NULL,[Active] [nvarchar](1) NULL,
+      [U_HTBL] [nvarchar](30) NULL,[U_Where] [nvarchar](max) NULL,CONSTRAINT [PK_SAP.@AB_TRKOBJ] 
+      PRIMARY KEY CLUSTERED ([DocEntry] ASC)WITH 
+      (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]]]>
+    </HANA>
+  </Query>
+  <Query name="Create@Expiry">
+    <SQL>
+      <![CDATA[If not exists (select name from sysobjects where name = '@Expiry')CREATE TABLE [dbo].[@Expiry]([U_ExpDays] [bigint] NOT NULL) ON [PRIMARY]]]>
+    </SQL>
+    <HANA>
+      <![CDATA[If not exists (select name from sysobjects where name = '@Expiry')CREATE TABLE [dbo].[@Expiry]([U_ExpDays] [bigint] NOT NULL) ON [PRIMARY]]]>
+    </HANA>
+  </Query>
+  <Query name="Create.SP.GET_CHANGES">
+    <SQL>
+      <![CDATA[
+       IF EXISTS ( SELECT * FROM   sysobjects  WHERE  id = object_id(N'[dbo].[GET_CHANGES]') and OBJECTPROPERTY(id, N'IsProcedure') = 1 )
+      DROP PROCEDURE [dbo].[GET_CHANGES];
+  GO
+ CREATE procedure [dbo].[GET_CHANGES]
+(
+@VersionNumber bigint,
+@ToVersionNumber bigint
+)
+as 
+
+begin
+SELECT  a.[DocEntry]
+      ,a.[U_ObjType]
+      ,[U_Key]
+	  ,b.U_KeyName
+	  ,b.U_HTBL 
+      ,[U_DateTime]
+	  ,a.[U_TrType]
+  FROM [CHANGE_TRACKING].[dbo].[@AB_CTRK] a
+  inner join [CHANGE_TRACKING].[dbo].[@AB_TRKOBJ] b
+  on a.U_ObjType = b.U_ObjType 
+  where a.DocEntry  > @VersionNumber and a.DocEntry <= @ToVersionNumber
+  order by DocEntry
+  end
+  GO]]>
+    </SQL>
+    <HANA>
+      <![CDATA[
+      IF EXISTS ( SELECT * FROM   sysobjects  WHERE  id = object_id(N'[dbo].[GET_CHANGES]') and OBJECTPROPERTY(id, N'IsProcedure') = 1 )
+  BEGIN
+      DROP PROCEDURE [dbo].[GET_CHANGES]
+  END
+CREATE procedure [dbo].[GET_CHANGES]
+(
+@VersionNumber bigint,
+@ToVersionNumber bigint
+)
+as 
+
+begin
+SELECT  a.[DocEntry]
+      ,a.[U_ObjType]
+      ,[U_Key]
+	  ,b.U_KeyName
+	  ,b.U_HTBL 
+      ,[U_DateTime]
+	  ,a.[U_TrType]
+  FROM [CHANGE_TRACKING].[dbo].[@AB_CTRK] a
+  inner join [CHANGE_TRACKING].[dbo].[@AB_TRKOBJ] b
+  on a.U_ObjType = b.U_ObjType 
+  where a.DocEntry  > @VersionNumber and a.DocEntry <= @ToVersionNumber
+  order by DocEntry
+  end]]>
+    </HANA>
+  </Query>
+  <Query name="Create.SF.AB_VN">
+    <SQL>
+      <![CDATA[
+       IF EXISTS ( SELECT * FROM sysobjects WHERE id = object_id(N'AB_VN')  AND xtype IN (N'FN', N'IF', N'TF'))
+      DROP FUNCTION [dbo].[AB_VN];
+  GO
+CREATE function [dbo].[AB_VN]
+()
+returns bigint
+as begin
+declare @DocEntry bigint 
+	select @DocEntry = max(a.DocEntry) from [@AB_CTRK] a
+	if(@DocEntry is null)
+	set @DocEntry = 0;
+	return  @DocEntry
+end]]>
+    </SQL>
+    <HANA>
+      <![CDATA[
+      IF EXISTS ( SELECT * FROM sysobjects WHERE id = object_id(N'AB_VN')  AND xtype IN (N'FN', N'IF', N'TF') )
+  BEGIN
+      DROP FUNCTION [dbo].[AB_VN]
+  END
+ CREATE function [dbo].[AB_VN]
+()
+returns bigint
+as begin
+declare @DocEntry bigint 
+	select @DocEntry = max(a.DocEntry) from [@AB_CTRK] a
+	if(@DocEntry is null)
+	set @DocEntry = 0;
+	return  @DocEntry
+end
+GO]]>
+    </HANA>
+  </Query>
+  <Query name="insertdefaultdata">
+    <SQL>
+      <![CDATA[
+	   INSERT INTO [dbo].[@AB_TRKOBJ] ( U_ObjType,U_KeyName,Active,U_HTBL)
+SELECT  '{0}','{1}','{2}','{3}'
+WHERE NOT EXISTS (
+    SELECT U_ObjType FROM [dbo].[@AB_TRKOBJ] WHERE U_ObjType ='{0}'
+)
+      ]]>
+    </SQL>
+    <HANA>
+      <![CDATA[INSERT INTO [dbo].[@AB_TRKOBJ] ( U_ObjType,U_KeyName,Active,U_HTBL)
+SELECT  '{0}','{1}','{2}','{3}'
+WHERE NOT EXISTS (
+    SELECT U_ObjType FROM [dbo].[@AB_TRKOBJ] WHERE U_ObjType ='{0}']]>
+    </HANA>
+  </Query>
+  <Query name="getSP">
+    <SQL>
+      <![CDATA[ SELECT definition FROM sys.sql_modules WHERE [object_id] = OBJECT_ID('{0}') ]]>
+    </SQL>
+    <HANA>
+      <![CDATA[ SELECT definition FROM sys.sql_modules WHERE [object_id] = OBJECT_ID('{0}') ]]>
+    </HANA>
+  </Query>
+  <Query name="dropChangeTracking">
+    <SQL>
+      <![CDATA[ IF EXISTS ( SELECT * FROM   sysobjects  WHERE  id = object_id(N'[dbo].[ChangeTracking]') and OBJECTPROPERTY(id, N'IsProcedure') = 1 )
+  BEGIN
+      DROP PROCEDURE [dbo].[ChangeTracking]
+  END ]]>
+    </SQL>
+    <HANA>
+      <![CDATA[IF EXISTS ( SELECT * FROM   sysobjects  WHERE  id = object_id(N'[dbo].[ChangeTracking]') and OBJECTPROPERTY(id, N'IsProcedure') = 1 )
+  BEGIN
+      DROP PROCEDURE [dbo].[ChangeTracking]
+  END]]>
+    </HANA>
+  </Query>
+  <Query name="changeTracking">
+    <SQL>
+      <![CDATA[ 
+       
+CREATE proc [dbo].[ChangeTracking]
+
+@object_type nvarchar(20),
+@transaction_type as nvarchar(1),
+@list_of_key_cols_tab_del nvarchar(255),
+@list_of_cols_val_tab_del nvarchar(255)
+
+
+AS
+BEGIN
+if(@object_type in( select U_ObjType from [{0}_CT].dbo.[@AB_TRKOBJ] where Active='Y' ) and @transaction_type in('A','U','L','C'))
+begin
+declare @version int 
+select @version = isnull(max(ct.U_version ),0)+1 from [{0}_CT].[dbo].[@AB_CTRK] ct where ct.U_ObjType = @object_type 
+insert into [{0}_CT].[dbo].[@AB_CTRK] (U_ObjType,U_Key,U_DateTime,U_TrType,U_KeyName,U_version)
+values(@object_type,@list_of_cols_val_tab_del,GETDATE(),@transaction_type,@list_of_key_cols_tab_del,@version);
+delete [{0}_CT].[dbo].[@AB_CTRK] --a left outer join b on a.[U_ObjType] = b.[U_ObjType] 
+where datediff(day,getdate(),U_DateTime) > (select U_ExpDays from [{0}_CT].[dbo].[@Expiry]) ;
+end
+END ]]>
+    </SQL>
+    <HANA>
+      <![CDATA[ 
+       
+CREATE proc [dbo].[ChangeTracking]
+
+@object_type nvarchar(20),
+@transaction_type as nvarchar(1),
+@list_of_key_cols_tab_del nvarchar(255),
+@list_of_cols_val_tab_del nvarchar(255)
+
+
+AS
+BEGIN
+if(@object_type in( select U_ObjType from [{0}_CT].dbo.[@AB_TRKOBJ] where Active='Y' ) and @transaction_type in('A','U','L','C'))
+begin
+declare @version int 
+select @version = isnull(max(ct.U_version ),0)+1 from [{0}_CT].[dbo].[@AB_CTRK] ct where ct.U_ObjType = @object_type 
+insert into [{0}_CT].[dbo].[@AB_CTRK] (U_ObjType,U_Key,U_DateTime,U_TrType,U_KeyName,U_version)
+values(@object_type,@list_of_cols_val_tab_del,GETDATE(),@transaction_type,@list_of_key_cols_tab_del,@version);
+delete [{0}_CT].[dbo].[@AB_CTRK] --a left outer join b on a.[U_ObjType] = b.[U_ObjType] 
+where datediff(day,getdate(),U_DateTime) > (select U_ExpDays from [{0}_CT].[dbo].[@Expiry]) ;
+end
+END  ]]>
+    </HANA>
+  </Query>
+  <Query name="Create@Log">
+  <SQL>
+    <![CDATA[If not exists (select name from sysobjects where name = '@Log')CREATE TABLE [dbo].[@Log](
+	[DocEntry] [bigint] IDENTITY(1,1) NOT NULL,
+	[U_version] [bigint],
+	[U_ObjType] [nvarchar](30),
+	[U_DateTime] [datetime] NOT NULL,
+	[U_Error] [nvarchar](max) NOT NULL,
+	[U_Direction] [nvarchar](30) NOT NULL,
+	[U_XML] [nvarchar](max) ,
+ CONSTRAINT [PK_@Log] PRIMARY KEY CLUSTERED 
+(
+	[DocEntry] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]]]>
+  </SQL>
+  <HANA>
+    <![CDATA[If not exists (select name from sysobjects where name = '@Log')CREATE TABLE [dbo].[@Log](
+	[DocEntry] [bigint] IDENTITY(1,1) NOT NULL,
+	[U_version] [bigint],
+	[U_ObjType] [nvarchar](30),
+	[U_DateTime] [datetime] NOT NULL,
+	[U_Error] [nvarchar](max) NOT NULL,
+	[U_Direction] [nvarchar](30) NOT NULL,
+	[U_XML] [nvarchar](max) ,
+ CONSTRAINT [PK_@Log] PRIMARY KEY CLUSTERED 
+(
+	[DocEntry] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]]]>
+  </HANA>
+</Query>
+
+  <Query name="LogMatrix">
+  <SQL>
+    <![CDATA[
+    SELECT DocEntry,U_version,U_ObjType,U_DateTime,U_Error,U_Direction,U_XML
+  FROM [{2}_CT].[dbo].[@Log]
+  where U_DateTime>='{0}' and U_DateTime<='{1}']]>
+  </SQL>
+  <HANA>
+    <![CDATA[  
+    SELECT DocEntry,U_version,U_ObjType,U_DateTime,U_Error,U_Direction,U_XML
+  FROM [{2}_CT].[dbo].[@Log]
+  where cast (U_DateTime as date)>='{0}' and cast (U_DateTime as date)<='{1}']]>
+  </HANA>
+</Query>
+  <Query name="getMinMax">
+    <SQL>
+      <![CDATA[
+	        select MIN(IdNumber) mini,MAX(IdNumber) maxi from OPWZ
+      ]]>
+    </SQL>
+    <HANA>
+      <![CDATA[
+          select MIN(IdNumber) mini,MAX(IdNumber) maxi from OPWZ
+      ]]>
+    </HANA>
+  </Query>
+</Queries>

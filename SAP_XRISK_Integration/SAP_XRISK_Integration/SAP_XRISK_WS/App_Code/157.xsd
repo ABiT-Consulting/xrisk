@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <!-- XML Schema Generated from XML Document on Mon May 20 2019 01:11:53 GMT-0700 (Pacific Daylight Time) -->
+  <!-- with XmlGrid.net Free Online Service http://xmlgrid.net -->
+  <xs:element name="BOM">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="BO" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="AdmInfo">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="Object" type="xs:int"></xs:element>
+                    <xs:element name="Version" type="xs:int"></xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="Payments">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="row">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="DocNum" type="xs:int"></xs:element>
+                          <xs:element name="DocType" type="xs:string"></xs:element>
+                          <xs:element name="HandWritten" type="xs:string"></xs:element>
+                          <xs:element name="Printed" type="xs:string"></xs:element>
+                          <xs:element name="DocDate" type="xs:int"></xs:element>
+                          <xs:element name="CardCode" type="xs:string"></xs:element>
+                          <xs:element name="CardName" type="xs:string"></xs:element>
+                          <xs:element name="Address" type="xs:string"></xs:element>
+                          <xs:element name="CashAccount" type="xs:int"></xs:element>
+                          <xs:element name="DocCurrency" type="xs:string"></xs:element>
+                          <xs:element name="CashSum" type="xs:int"></xs:element>
+                          <xs:element name="CheckAccount" type="xs:int"></xs:element>
+                          <xs:element name="TransferAccount" type="xs:int"></xs:element>
+                          <xs:element name="TransferSum" type="xs:double"></xs:element>
+                          <xs:element name="TransferDate" type="xs:int"></xs:element>
+                          <xs:element name="TransferReference"></xs:element>
+                          <xs:element name="LocalCurrency" type="xs:string"></xs:element>
+                          <xs:element name="DocRate" type="xs:int"></xs:element>
+                          <xs:element name="Reference1" type="xs:int"></xs:element>
+                          <xs:element name="JournalRemarks" type="xs:string"></xs:element>
+                          <xs:element name="SplitTransaction" type="xs:string"></xs:element>
+                          <xs:element name="ApplyVAT" type="xs:string"></xs:element>
+                          <xs:element name="TaxDate" type="xs:int"></xs:element>
+                          <xs:element name="Series" type="xs:int"></xs:element>
+                          <xs:element name="BankCode" type="xs:string"></xs:element>
+                          <xs:element name="BankAccount" type="xs:int"></xs:element>
+                          <xs:element name="DiscountPercent" type="xs:int"></xs:element>
+                          <xs:element name="CurrencyIsLocal" type="xs:string"></xs:element>
+                          <xs:element name="DeductionPercent" type="xs:int"></xs:element>
+                          <xs:element name="DeductionSum" type="xs:int"></xs:element>
+                          <xs:element name="BillOfExchangeAmount" type="xs:int"></xs:element>
+                          <xs:element name="WTAmount" type="xs:int"></xs:element>
+                          <xs:element name="Proforma" type="xs:string"></xs:element>
+                          <xs:element name="PayToCode" type="xs:string"></xs:element>
+                          <xs:element name="IsPayToBank" type="xs:string"></xs:element>
+                          <xs:element name="DocEntry" type="xs:int"></xs:element>
+                          <xs:element name="PaymentPriority" type="xs:string"></xs:element>
+                          <xs:element name="BankChargeAmount" type="xs:int"></xs:element>
+                          <xs:element name="BankChargeAmountInSC" type="xs:int"></xs:element>
+                          <xs:element name="WtBaseSum" type="xs:int"></xs:element>
+                          <xs:element name="PaymentType" type="xs:string"></xs:element>
+                          <xs:element name="TransferRealAmount" type="xs:int"></xs:element>
+                          <xs:element name="DocObjectCode" type="xs:string"></xs:element>
+                          <xs:element name="DocTypte" type="xs:string"></xs:element>
+                          <xs:element name="DueDate" type="xs:int"></xs:element>
+                          <xs:element name="ControlAccount" type="xs:int"></xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="Payments_Invoices">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="row">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="LineNum" type="xs:int"></xs:element>
+                          <xs:element name="DocEntry" type="xs:int"></xs:element>
+                          <xs:element name="SumApplied" type="xs:double"></xs:element>
+                          <xs:element name="AppliedFC" type="xs:int"></xs:element>
+                          <xs:element name="AppliedSys" type="xs:double"></xs:element>
+                          <xs:element name="DocRate" type="xs:int"></xs:element>
+                          <xs:element name="DocLine" type="xs:int"></xs:element>
+                          <xs:element name="InvoiceType" type="xs:string"></xs:element>
+                          <xs:element name="DiscountPercent" type="xs:int"></xs:element>
+                          <xs:element name="PaidSum" type="xs:int"></xs:element>
+                          <xs:element name="InstallmentId" type="xs:int"></xs:element>
+                          <xs:element name="TotalDiscount" type="xs:int"></xs:element>
+                          <xs:element name="TotalDiscountFC" type="xs:int"></xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute name="Key" type="xs:int"></xs:attribute>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

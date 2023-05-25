@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="SAP_XRISK_WS.SAP_XRISK" CodeBehind="SAP_XRISK.svc.cs" %>

@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<BOM>
+  <BO>
+    <AdmInfo>
+      <Object>152</Object>
+    </AdmInfo>
+    <CUFD>
+      <row resolved="N" Name="CompanyName">
+        <TableName>
+          AB_SerUrl
+        </TableName>
+        <Name>SerUrl</Name>
+        <Description>Service URL</Description>
+        <Mandatory>Y</Mandatory>
+        <Type>A</Type>
+        <Size>254</Size>
+        <EditSize>254</EditSize>
+        <SubType>0</SubType>
+      </row>
+    </CUFD>
+  </BO>
+</BOM>
+  
+   

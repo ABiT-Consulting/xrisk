@@ -1,0 +1,26 @@
+<publishData>
+  <publishTarget publishUrl="http://localhost/ComModel">
+    <file relUrl="bin/ComModel.pdb" publishTime="12/21/2017 12:25:41" />
+    <file relUrl="bin/ComModel.dll.config" publishTime="12/02/2017 13:54:30" />
+    <file relUrl="ComModel.ComModelService.svc" publishTime="12/21/2017 12:27:47" />
+    <file relUrl="Web.config" publishTime="12/02/2017 13:54:30" />
+    <file relUrl="bin/ComModel.b1s" publishTime="12/21/2017 12:25:46" />
+    <file relUrl="bin/ComModel.dll" publishTime="12/21/2017 12:25:42" />
+  </publishTarget>
+  <publishTarget publishUrl="http://localhost:8181/">
+    <file relUrl="bin/ComModel.pdb" publishTime="12/21/2017 11:46:47" />
+    <file relUrl="bin/ComModel.dll.config" publishTime="12/02/2017 13:54:30" />
+    <file relUrl="ComModel.ComModelService.svc" publishTime="12/21/2017 12:25:11" />
+    <file relUrl="Web.config" publishTime="12/02/2017 13:54:30" />
+    <file relUrl="bin/ComModel.b1s" publishTime="12/21/2017 12:18:59" />
+    <file relUrl="bin/ComModel.dll" publishTime="12/21/2017 11:46:48" />
+  </publishTarget>
+  <publishTarget publishUrl="D:\Builds\COM_MODEL\">
+    <file relUrl="bin/ComModel.pdb" publishTime="12/21/2017 08:00:50" />
+    <file relUrl="bin/ComModel.dll.config" publishTime="12/02/2017 13:54:30" />
+    <file relUrl="ComModel.ComModelService.svc" publishTime="12/21/2017 11:32:31" />
+    <file relUrl="Web.config" publishTime="12/02/2017 13:54:30" />
+    <file relUrl="bin/ComModel.b1s" publishTime="12/21/2017 08:00:56" />
+    <file relUrl="bin/ComModel.dll" publishTime="12/21/2017 08:00:51" />
+  </publishTarget>
+</publishData>

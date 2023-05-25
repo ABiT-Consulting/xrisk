@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ComModel.ComModelService">
+    <Position X="5" Y="1.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAQAAABhAAAEAAAAAAAAAQAAAQAAAAAAA=</HashCode>
+      <FileName>ComModelService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ComModel.JSON_OBJ" Collapsed="true">
+    <Position X="3.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAAAAAAAAAAAAAgABAAAIAAAIAAIAAAAAA=</HashCode>
+      <FileName>IComModelService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ComModel.Response" Collapsed="true">
+    <Position X="5.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAgAEAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IComModelService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="ComModel.IComModelService">
+    <Position X="1.25" Y="1.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQAAAAhAAAAAAAAAAAAAQAAAQAAAAAAA=</HashCode>
+      <FileName>IComModelService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

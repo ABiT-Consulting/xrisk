@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="5894ebba-08fe-4f6d-99f0-4da564bab8b6" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:55847/ComModelService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ComModelService.xsd" MetadataType="Schema" ID="4adaca09-15b1-4fa0-9fe5-7be109aa0721" SourceId="1" SourceUrl="http://localhost:55847/ComModelService.svc?xsd=xsd1" />
+    <MetadataFile FileName="ComModelService.wsdl" MetadataType="Wsdl" ID="4fd17cce-6598-4844-948f-b6606af8bb5f" SourceId="1" SourceUrl="http://localhost:55847/ComModelService.svc?wsdl" />
+    <MetadataFile FileName="ComModelService1.xsd" MetadataType="Schema" ID="5d76c7e9-e63d-440e-bbe7-519c9dc0401f" SourceId="1" SourceUrl="http://localhost:55847/ComModelService.svc?xsd=xsd0" />
+    <MetadataFile FileName="ComModelService2.xsd" MetadataType="Schema" ID="0f256979-021c-47b5-9858-fd307a69c6c5" SourceId="1" SourceUrl="http://localhost:55847/ComModelService.svc?xsd=xsd2" />
+    <MetadataFile FileName="ComModelService.disco" MetadataType="Disco" ID="daff62e9-e4d1-445f-8049-d63c74bfeb59" SourceId="1" SourceUrl="http://localhost:55847/ComModelService.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

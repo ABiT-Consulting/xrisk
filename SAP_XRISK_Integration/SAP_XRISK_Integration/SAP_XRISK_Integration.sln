@@ -1,0 +1,67 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.168
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TEST", "TEST\TEST.csproj", "{96901F1B-B74E-4123-BDD7-7BAEF2772F11}"
+	ProjectSection(ProjectDependencies) = postProject
+		{EBB1D10E-90D9-42F8-A5B5-A55BCE777BB6} = {EBB1D10E-90D9-42F8-A5B5-A55BCE777BB6}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SAP_XRISK_Addon", "SAP_XRISK_Addon\SAP_XRISK_Addon.csproj", "{D91999BE-396B-43D8-9C38-3C063EBA4CA0}"
+	ProjectSection(ProjectDependencies) = postProject
+		{EBB1D10E-90D9-42F8-A5B5-A55BCE777BB6} = {EBB1D10E-90D9-42F8-A5B5-A55BCE777BB6}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ADDONBASE", "..\..\..\SAP_LIBERARY\ADDONBASE\ADDONBASE.csproj", "{C3B7AD86-D7B8-4BBB-B2E2-1B4E8754F66C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SAP_XRISK_WS", "SAP_XRISK_WS\SAP_XRISK_WS.csproj", "{EBB1D10E-90D9-42F8-A5B5-A55BCE777BB6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{96901F1B-B74E-4123-BDD7-7BAEF2772F11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96901F1B-B74E-4123-BDD7-7BAEF2772F11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96901F1B-B74E-4123-BDD7-7BAEF2772F11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96901F1B-B74E-4123-BDD7-7BAEF2772F11}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D91999BE-396B-43D8-9C38-3C063EBA4CA0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D91999BE-396B-43D8-9C38-3C063EBA4CA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D91999BE-396B-43D8-9C38-3C063EBA4CA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D91999BE-396B-43D8-9C38-3C063EBA4CA0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3B7AD86-D7B8-4BBB-B2E2-1B4E8754F66C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3B7AD86-D7B8-4BBB-B2E2-1B4E8754F66C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3B7AD86-D7B8-4BBB-B2E2-1B4E8754F66C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3B7AD86-D7B8-4BBB-B2E2-1B4E8754F66C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EBB1D10E-90D9-42F8-A5B5-A55BCE777BB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBB1D10E-90D9-42F8-A5B5-A55BCE777BB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBB1D10E-90D9-42F8-A5B5-A55BCE777BB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EBB1D10E-90D9-42F8-A5B5-A55BCE777BB6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {46471E1F-09E0-4A89-A500-E703418CA293}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 5
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://abit-consulting.visualstudio.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = TEST\\TEST.csproj
+		SccProjectName1 = TEST
+		SccLocalPath1 = TEST
+		SccProjectUniqueName2 = SAP_XRISK_Addon\\SAP_XRISK_Addon.csproj
+		SccProjectName2 = SAP_XRISK_Addon
+		SccLocalPath2 = SAP_XRISK_Addon
+		SccProjectUniqueName3 = ..\\..\\..\\SAP_LIBERARY\\ADDONBASE\\ADDONBASE.csproj
+		SccProjectName3 = ../../../SAP_LIBERARY/ADDONBASE
+		SccLocalPath3 = ..\\..\\..\\SAP_LIBERARY\\ADDONBASE
+		SccProjectUniqueName4 = SAP_XRISK_WS\\SAP_XRISK_WS.csproj
+		SccProjectName4 = SAP_XRISK_WS
+		SccLocalPath4 = SAP_XRISK_WS
+	EndGlobalSection
+EndGlobal

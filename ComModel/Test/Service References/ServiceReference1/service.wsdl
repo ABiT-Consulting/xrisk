@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ComModelService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/ComModel" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IComModelService_Login_InputMessage">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="IComModelService_Login_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="IComModelService_SignIn_InputMessage">
+    <wsdl:part name="parameters" element="tns:SignIn" />
+  </wsdl:message>
+  <wsdl:message name="IComModelService_SignIn_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SignInResponse" />
+  </wsdl:message>
+  <wsdl:message name="IComModelService_GetObjectByKey_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetObjectByKey" />
+  </wsdl:message>
+  <wsdl:message name="IComModelService_GetObjectByKey_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetObjectByKeyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IComModelService_AddUpdateObject_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddUpdateObject" />
+  </wsdl:message>
+  <wsdl:message name="IComModelService_AddUpdateObject_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddUpdateObjectResponse" />
+  </wsdl:message>
+  <wsdl:message name="IComModelService_LogOut_InputMessage">
+    <wsdl:part name="parameters" element="tns:LogOut" />
+  </wsdl:message>
+  <wsdl:message name="IComModelService_LogOut_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LogOutResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IComModelService">
+    <wsdl:operation name="Login">
+      <wsdl:input wsaw:Action="http://tempuri.org/IComModelService/Login" message="tns:IComModelService_Login_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IComModelService/LoginResponse" message="tns:IComModelService_Login_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SignIn">
+      <wsdl:input wsaw:Action="http://tempuri.org/IComModelService/SignIn" message="tns:IComModelService_SignIn_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IComModelService/SignInResponse" message="tns:IComModelService_SignIn_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetObjectByKey">
+      <wsdl:input wsaw:Action="http://tempuri.org/IComModelService/GetObjectByKey" message="tns:IComModelService_GetObjectByKey_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IComModelService/GetObjectByKeyResponse" message="tns:IComModelService_GetObjectByKey_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddUpdateObject">
+      <wsdl:input wsaw:Action="http://tempuri.org/IComModelService/AddUpdateObject" message="tns:IComModelService_AddUpdateObject_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IComModelService/AddUpdateObjectResponse" message="tns:IComModelService_AddUpdateObject_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LogOut">
+      <wsdl:input wsaw:Action="http://tempuri.org/IComModelService/LogOut" message="tns:IComModelService_LogOut_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IComModelService/LogOutResponse" message="tns:IComModelService_LogOut_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IComModelService" type="tns:IComModelService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Login">
+      <soap:operation soapAction="http://tempuri.org/IComModelService/Login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SignIn">
+      <soap:operation soapAction="http://tempuri.org/IComModelService/SignIn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetObjectByKey">
+      <soap:operation soapAction="http://tempuri.org/IComModelService/GetObjectByKey" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddUpdateObject">
+      <soap:operation soapAction="http://tempuri.org/IComModelService/AddUpdateObject" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogOut">
+      <soap:operation soapAction="http://tempuri.org/IComModelService/LogOut" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ComModelService">
+    <wsdl:port name="BasicHttpBinding_IComModelService" binding="tns:BasicHttpBinding_IComModelService">
+      <soap:address location="http://localhost:8733/Design_Time_Addresses/ComModel/B1Services/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
